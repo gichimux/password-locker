@@ -60,6 +60,7 @@ def main():
     print("---------Welcome to your Password Locker-----------")
     print("-"*20)
     while True:
+        #interface that creates new account
         print("Type:\n  cc to create new account\n  ln to log in\n  ex to exit")
         input_text = input().lower().strip()
         if input_text == "cc":
@@ -74,7 +75,8 @@ def main():
             print(f" {my_username} has been initiated .\nLogin to continue")
             entries.append(0)
             print("-"*20)
-
+       
+        #log in interface
         elif input_text == "ln".lower():
             print("Enter username and password to continue:")
             print("-"*30)
@@ -87,15 +89,19 @@ def main():
                 print("-"*25)
             elif get_result!=0:
                 
+                #logged in user's interface
                 print("\n")
                 print(f"Hello {get_result.user_name}! What do you want to do?")
                 while True:
                     print("Type:\n  ap - Add Password\n  vp - View Passwords\n  cp - copy password to clipboard\n  lo - Log Out")
                     get_input = input().lower()
-                    if get_input == "ap":
+                    
+                    if get_input == "ap":   #password add interface
                         print("Add Application/Website name and password to store them in the locker:")
                         print("Enter App/Website:")
                         my_app = input()
+                        
+                        #optional password generation
                         print("do you want a new password generated for you? \n Type y for yes \n n to input your own..")
                         pass_input = input().lower
                         if pass_input == "y":
@@ -115,7 +121,7 @@ def main():
                         print("\n")
                         print(f"***Your password for {my_app} is {my_webkey}***")
                         print("-"*45)
-
+                    #interface to view passwords
                     elif get_input == "vp":
                         if user_existing(get_result.auth):
                             length = entries[get_result.auth]
