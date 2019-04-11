@@ -9,25 +9,20 @@ the application uses simple shortcodes to enable the user access the various fun
 before account creation, this are the shortcodes used 
 
 
-|short code| result expected       |
-------------------------------------      
-|    cc    | creates a new account |
-------------------------------------
-|    ln    | logs user out         |
-------------------------------------
-|    ex    | exits the application |-
-------------------------------------
+short code| result expected       
+----------------------------------      
+    cc    | creates a new account 
+    ln    | logs user out         
+    ex    | exits the application 
 
 after account creation other further shortcodes enable more functionality
 
-|short code | result expected      |
-------------------------------------
-|   ap      |  adds user passwords |
-------------------------------------
-|   vp      |  view passwords      |
-------------------------------------
-|   cp      |  copy passwords      |
-------------------------------------
+ short code | result expected     
+---------------------------------
+   ap      |  adds user passwords
+   vp      |  view passwords     
+   cp      |  copy passwords     
+
 
 
 # TECHNOLOGIES USED
