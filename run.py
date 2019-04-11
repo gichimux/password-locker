@@ -15,7 +15,7 @@ def create_user(user):
 
 #function that authorizes user account
 def authenticate(username,passkey):
-    return Credentials.auth(username,passkey)
+    return Credentials.auth_user(username,passkey)
 
 #function that creates new data entries
 def new_user(user_id,data_id,app_name,app_key):
@@ -32,40 +32,38 @@ def display_data(data,number):
 
 #function that checks if user exists
 def user_existing(data):
-    return User.user_data(data)
+    return User.existing_data(data)
 
 #the password generator
 def password_generator(count):
-    password_gen=[]
-    round = 1
-    while round<=count:
+    password_list=[]
+    counter = 1
+    while counter<=count:
         gen_password = random.choice(string.ascii_lowercase + string.digits + string.ascii_uppercase )
-        password_gen.append(gen_password)
-        round+=1
-    return ''.join(password_gen)
+        password_list.append(gen_password)
+        counter+=1
+    return ''.join(password_list)
 
+#function to copy password to clipboard
 def copy_password(number,count):
-    '''
-    Function that copies the password to the clipboard
-    '''
-    UsersData.copy_password(number,count)
+    User.copy_password(number,count)
     
 def main():
     '''
-    Main function
+    The main function
     '''
     my_id=0
     # my_data_id = 0
     entries = []
     # print(password_generator(10))
     print("\n")
-    print("       Welcome to password Locker")
-    print("-"*40)
+    print("---------Welcome to your Password Locker-----------")
+    print("-"*20)
     while True:
-        print("Type:\n  cc to create new account\n  ss to sign in\n  ex to exit")
-        welcome_text = input().lower().strip()
-        if welcome_text == "cc":
-            print("Create account to continue:"+"\n"+"-"*25 + " \n Enter Username:")
+        print("Type:\n  cc to create new account\n  ln to log in\n  ex to exit")
+        input_text = input().lower().strip()
+        if input_text == "cc":
+            print("You Will Now Create A New Account:"+"\n"+"-"*20 + " \n Enter Username:")
             my_username = input("New Username: ")
             print(" Enter password:")
             my_password = input("New Password: ")
@@ -73,53 +71,59 @@ def main():
             print("\n")
             create_user(new_account(my_id,my_username,my_password))
             my_id+=1
-            print(f"User {my_username} has been created.\nLogin to continue")
+            print(f" {my_username} has been initiated .\nLogin to continue")
             entries.append(0)
-            print("-"*27)
+            print("-"*20)
 
-        elif welcome_text == "ss".lower():
+        elif input_text == "ln".lower():
             print("Enter username and password to continue:")
-            print("-"*40)
+            print("-"*30)
             my_login = input("Username: ")
             my_key = input("Password: ")
             get_result = authenticate(my_login,my_key)
             if get_result == 0:
                 print("\n")
                 print("Invalid username and/or password")
-                print("-"*27)
+                print("-"*25)
             elif get_result!=0:
-                # print(f"{get_result.identify} has logged in")
+                
                 print("\n")
-                print(f"Welcome {get_result.user_name}! What would you like to do?")
+                print(f"Hello {get_result.user_name}! What do you want to do?")
                 while True:
-                    print("Type:\n  ad - Add Password\n  vp - View Passwords\n  cp - copy password to clipboard\n  lo - Log Out")
+                    print("Type:\n  ap - Add Password\n  vp - View Passwords\n  cp - copy password to clipboard\n  lo - Log Out")
                     get_input = input().lower()
-                    if get_input == "ad":
-                        print("Add website and password to store them securely:")
-                        print("Enter Website:")
-                        my_website = input()
-                        print("How long do you want the password to be?")
-                        password_length = int(input("Length of password: "))
-                        my_webkey = password_generator(password_length)
-                        # my_data_id = my_data_id+1
-                        my_ident = get_result.identify
-                        add_data(my_new_data(my_ident,entries[my_ident],my_website,my_webkey))
-                        entries[my_ident]=entries[my_ident]+1
+                    if get_input == "ap":
+                        print("Add Application/Website name and password to store them in the locker:")
+                        print("Enter App/Website:")
+                        my_app = input()
+                        print("do you want a new password generated for you? \n Type y for yes \n n to input your own..")
+                        pass_input = input().lower
+                        if pass_input == "y":
+                            print("please specify length of pasword you want to generate")
+                            password_length = int(input("Length of password: "))
+                            my_webkey = password_generator(password_length)
+                        if pass_input == "n":
+                            my_webkey = input()
+                        else:
+                            print("password locker does not understand your input")
+                        
+                        my_auth = get_result.auth
+                        add_data(new_user(my_auth,entries[my_auth],my_app,my_webkey))
+                        entries[my_auth]=entries[my_auth]+1
                         print("\nWait...")
                         time.sleep(1.5)
                         print("\n")
-                        print(f"***Your password for {my_website} is {my_webkey}***")
-                        # print(f"This is the {entries[my_ident]} entry")MKBViStksX 0h5SzxJxQe fOTSiyEZuQ
+                        print(f"***Your password for {my_app} is {my_webkey}***")
                         print("-"*45)
 
                     elif get_input == "vp":
-                        if data_existing(get_result.identify):
-                            length = entries[get_result.identify]
+                        if user_existing(get_result.auth):
+                            length = entries[get_result.auth]
                             print(f"You have {length} passwords:")
                             print("\n")
                             data_my=0
                             while data_my < length:
-                                get_password = display_data(get_result.identify,data_my)
+                                get_password = display_data(get_result.auth,data_my)
                                 print(f"{data_my+1}. {get_password.website} ---- {get_password.web_key}")
                                 data_my+=1
                             print("\nEnter a command to continue")
@@ -129,16 +133,16 @@ def main():
                             print("-"*20)
 
                     elif get_input == "cp":
-                        if data_existing(get_result.identify):
+                        if user_existing(get_result.auth):
                             print("Enter the index of password you want to copy:")
                             get_index = int(input("Enter index: "))-1
-                            if get_index >= entries[get_result.identify] or get_index<0:
+                            if get_index >= entries[get_result.auth] or get_index<0:
                                 print("\n")
                                 print(f"{get_index+1} is invalid. Enter the correct index of password to copy")
                                 print("Type vp to confirm the correct index of password to copy")
                                 print("-"*30)
-                            elif get_index < entries[get_result.identify]:
-                                copy_password(get_result.identify,get_index)
+                            elif get_index < entries[get_result.auth]:
+                                copy_password(get_result.auth,get_index)
                                 print("\n")
                                 print(f"Password {get_index+1} on the list has been copied, and is ready for pasting")
                                 print("-"*30)
@@ -156,7 +160,7 @@ def main():
                         print("Invalid entry. Enter command again")
                         print("\n"+"-"*40)
 
-        elif welcome_text == "ex":
+        elif input_text == "ex":
             print("\n")
             print(f"Goodbye!!")
             print("-"*30)
