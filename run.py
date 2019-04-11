@@ -3,61 +3,46 @@ import string,random,time
 from locker import Credentials
 from locker import User
 
+
+#fuction that creates a new account for user
 def new_account(id,user_name,password):
-    '''
-    Function to creating new account
-    '''
     new_user = Credentials(id,user_name,password)
     return new_user
 
+#function tht saves the new account
 def create_user(user):
-    '''
-    Function that saves the user's credentials
-    '''
     user.create_account()
 
+#function that authorizes user account
 def authenticate(username,passkey):
-    '''
-    Function responsible for signing in
-    '''
-    return Credentials.authenticate_account(username,passkey)
+    return Credentials.auth(username,passkey)
 
-def my_new_data(user_id,data_id,website,web_key):
-    '''
-    Function that creates new data for storing password
-    '''
-    new_data = UsersData(user_id,data_id,website,web_key)
-    return new_data
+#function that creates new data entries
+def new_user(user_id,data_id,app_name,app_key):
+    new_user = User(user_id,data_id,app_name,app_key)
+    return new_user
 
+#function that saves the new password created
 def add_data(data):
-    '''
-    Function that saves the new data created
-    '''
     data.add_password()
 
+#function that displays the user data
 def display_data(data,number):
-    '''
-    Function that displays the user data
-    '''
-    return UsersData.display_data(data,number)
+    return User.display_data(data,number)
 
-def data_existing(data):
-    '''
-    Function that checks if user data exists
-    '''
-    return UsersData.existing_data(data)
+#function that checks if user exists
+def user_existing(data):
+    return User.user_data(data)
 
+#the password generator
 def password_generator(count):
-    '''
-    Function that generates a password
-    '''
-    pass_list=[]
+    password_gen=[]
     round = 1
     while round<=count:
         gen_password = random.choice(string.ascii_lowercase + string.digits + string.ascii_uppercase )
-        pass_list.append(gen_password)
+        password_gen.append(gen_password)
         round+=1
-    return ''.join(pass_list)
+    return ''.join(password_gen)
 
 def copy_password(number,count):
     '''
