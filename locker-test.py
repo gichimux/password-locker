@@ -13,7 +13,7 @@ class TestCredentials(unittest.TestCase):
     
     def tearDown(self):
         '''
-        Cleans up after each test has run
+        Clean up after each test has run
         '''
         Credentials.users_list = []
     
@@ -22,8 +22,8 @@ class TestCredentials(unittest.TestCase):
         Test case to test if the case has been initialized properly
         '''
         self.assertEqual(self.new_user.auth,1)
-        self.assertEqual(self.new_user.user_name,"richie")
-        self.assertEqual(self.new_user.password,"uiui")
+        self.assertEqual(self.new_user.user_name,"john")
+        self.assertEqual(self.new_user.password,"doe")
     
     def test_create(self):
         '''
@@ -34,7 +34,7 @@ class TestCredentials(unittest.TestCase):
     
     def test_authenticate(self):
         '''
-        Testing to check if the authenticate function can sign in a user properly
+        Test to check if the authenticate function can sign in a user properly
         '''
         self.new_user.create_account()
         test_account = Credentials(1,"Test","Password")
@@ -55,7 +55,7 @@ class TestUserData(unittest.TestCase):
     
     def tearDown(self):
         '''
-        Cleans up the test after test is complete
+        Clean up the test after test is complete
         '''
         User.data_list = []
     
@@ -70,14 +70,14 @@ class TestUserData(unittest.TestCase):
 
     def test_add_password(self):
         '''
-        Testing if the new website and password can be saved
+        Test if the new app and password can be saved
         '''
         self.new_data.add_password()
         self.assertEqual(len(User.data_list),1)
 
     def test_display_data(self):
         '''
-        Testing if the data can be displayed.
+        Test if data can be displayed.
         '''
         self.new_data.add_password()
         test_data = User(1,1,"facebook.com","poiii")
@@ -88,10 +88,10 @@ class TestUserData(unittest.TestCase):
     
     def test_data_exists(self):
         '''
-        Testing to check if the function for checking data works well
+        Test to check if the function for checking data works 
         '''
         self.new_data.add_password()
-        test_data = User(1,1,"facebook.com","poiii")
+        test_data = User(1,1,"facebook.com","tpgh")
         test_data.add_password()
 
         data_exists = User.existing_data(1)
@@ -99,7 +99,7 @@ class TestUserData(unittest.TestCase):
     
     def test_copy_password(self):
         '''
-        Testing if the copy password function works
+        Test if the copy password function works
         '''
         self.new_data.add_password()
         User.copy_password(1,1)
