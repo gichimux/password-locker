@@ -168,7 +168,7 @@ def main():
 
         elif input_text == "ex":
             print("\n")
-            print(f"Goodbye!!")
+            print(f"You have exited Password Locker!")
             print("-"*30)
             break
 
