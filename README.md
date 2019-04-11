@@ -22,7 +22,7 @@ short code | result expected
 ----------------------------------
     ap      |  adds user passwords
     vp      |  view passwords     
-    cp      |  copy passwords     
+    cp      |  copy password to clipboard     
 
 
 
