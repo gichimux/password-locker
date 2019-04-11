@@ -2,7 +2,7 @@
 
 This is a command line application that gives the user the ability to create or generate passwords for various applications and websites that the user has been granted access to.
 
-### how it works
+### How it works
 
 The application uses simple shortcodes to enable the user access the various functionalities in the application
 
@@ -30,17 +30,17 @@ short code | result expected
 
 Password Locker is made using python 3.6
 
-# prerequisites
+# Prerequisites
 
 For the application to run, you should have python3.6 in your system
 
-# author
+# Author
 This application was made by george gichimu
 To report bugs or contact me, reach me on this email address:[gichimu.dev@gmail.com](gichimu.dev@gmail.com)
 
-# application url
+# Application URL
 [Password Locker](https://github.com/gichimux/password-locker)
 
-# bugs reported
+# Bugs Reported
 No bugs reported so far
 
