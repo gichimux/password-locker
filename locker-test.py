@@ -9,7 +9,7 @@ class TestCredentials(unittest.TestCase):
     '''
     def setUp(self):
         
-        self.new_user = Credentials(1,"john","doe")
+        self.new_user =Credentials(1,"john","doe")
     
     def tearDown(self):
         '''
