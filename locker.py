@@ -19,11 +19,15 @@ class Credentials:
     '''
     class that creates instances of credentials
     '''
+    #create a dictionary to save credentials as {'app_name': 'user_name, password'}
+    def create_credentials_dict():
+        credentials_dict = {}
+        store_passwords(app_name, password, user_name)
 
-    credentials_list = {}
+    #store credentials in the dictionary
+    def store_credentials(cls, credentials_dict ):
+        credentials_dict[app_name] = password + user_name 
 
-    def save_credentials(self):
-        Credentials.credentials_list.append(self)
 
     def __init__(self, app_name, user_name, password):
         self.app_name = app_name
@@ -31,19 +35,15 @@ class Credentials:
         self.password = password
 
 
-
+    #method to generate passwords for user
     def password_gen():
         return random.randint(11, 99) + str(random.randint(111, 499) + random.randint(33, 77) 
+
     
-    @classmethod
-    def add_app(app_name):
+    
+  
         
-   # @classmethod
-    #def password_verify(cls, password):
-    #    '''
-     #   password veification function 
-     #   '''
-      #  for char in password
+  
 
    
 
