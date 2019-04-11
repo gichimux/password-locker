@@ -138,7 +138,7 @@ def main():
                             print("\nYou have no saved passwords.\nType ad to generate some passwords")
                             print("-"*20)
 
-                    elif get_input == "cp":
+                    elif get_input == "cp": #copy password interface
                         if user_existing(get_result.auth):
                             print("Enter the index of the password you want to copy:")
                             get_index = int(input("Enter index: "))-1
@@ -158,7 +158,7 @@ def main():
 
                     elif get_input == "lo":
                         print("\n")
-                        print(f"Goodbye {get_result.user_name}!")
+                        print(f" {get_result.user_name} has been logged out")
                         print("-"*30)
                         break
                     
