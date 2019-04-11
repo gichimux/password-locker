@@ -53,9 +53,9 @@ def main():
     The main function
     '''
     my_id=0
-    # my_data_id = 0
+
     entries = []
-    # print(password_generator(10))
+
     print("\n")
     print("---------Welcome to your Password Locker-----------")
     print("-"*20)
