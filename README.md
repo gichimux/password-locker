@@ -17,11 +17,12 @@ short code| result expected
 
 after account creation other further shortcodes enable more functionality
 
- short code | result expected     
----------------------------------
-   ap      |  adds user passwords
-   vp      |  view passwords     
-   cp      |  copy passwords     
+
+short code | result expected     
+----------------------------------
+    ap      |  adds user passwords
+    vp      |  view passwords     
+    cp      |  copy passwords     
 
 
 
