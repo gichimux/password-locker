@@ -103,12 +103,13 @@ def main():
                         
                         #optional password generation
                         print("do you want a new password generated for you? \n Type y for yes \n n to input your own..")
-                        pass_input = input().lower
-                        if pass_input == "y":
+                        password_input = input().lower
+                        if password_input == "y":
                             print("please specify length of pasword you want to generate")
                             password_length = int(input("Length of password: "))
                             my_webkey = password_generator(password_length)
-                        if pass_input == "n":
+                        if password_input == "n":
+                            print("Key in your Password to save it")
                             my_webkey = input()
                         else:
                             print("password locker does not understand your input")
@@ -135,7 +136,7 @@ def main():
                             print("\nEnter a command to continue")
                             print("-"*20)
                         else:
-                            print("\nYou have no saved passwords.\nType ad to generate some passwords")
+                            print("\nYou have no saved passwords.\nType ap to generate some passwords")
                             print("-"*20)
 
                     elif get_input == "cp": #copy password interface
