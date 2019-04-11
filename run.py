@@ -127,33 +127,33 @@ def main():
                             length = entries[get_result.auth]
                             print(f"You have {length} passwords:")
                             print("\n")
-                            data_my=0
-                            while data_my < length:
-                                get_password = display_data(get_result.auth,data_my)
-                                print(f"{data_my+1}. {get_password.website} ---- {get_password.web_key}")
-                                data_my+=1
+                            my_label=0
+                            while my_label < length:
+                                get_password = display_data(get_result.auth,my_label)
+                                print(f"{my_label+1}. {get_password.app_name} >>> {get_password.web_key}")
+                                my_label+=1
                             print("\nEnter a command to continue")
                             print("-"*20)
                         else:
-                            print("\nYou have no data.\nType ad to generate some passwords")
+                            print("\nYou have no saved passwords.\nType ad to generate some passwords")
                             print("-"*20)
 
                     elif get_input == "cp":
                         if user_existing(get_result.auth):
-                            print("Enter the index of password you want to copy:")
+                            print("Enter the index of the password you want to copy:")
                             get_index = int(input("Enter index: "))-1
                             if get_index >= entries[get_result.auth] or get_index<0:
                                 print("\n")
                                 print(f"{get_index+1} is invalid. Enter the correct index of password to copy")
                                 print("Type vp to confirm the correct index of password to copy")
-                                print("-"*30)
+                                print("-"*20)
                             elif get_index < entries[get_result.auth]:
                                 copy_password(get_result.auth,get_index)
                                 print("\n")
                                 print(f"Password {get_index+1} on the list has been copied, and is ready for pasting")
                                 print("-"*30)
                         else:
-                            print("\nYou have no data.\nType ad to add some passwords")
+                            print("\nYou have no saved passwords.\nType ad to add some passwords")
                             print("-"*20)
 
                     elif get_input == "lo":
