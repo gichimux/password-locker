@@ -121,7 +121,7 @@ def main():
                         time.sleep(1.5)
                         print("\n")
                         print(f"***Your password for {my_app} is {my_webkey}***")
-                        print("-"*45)
+                        print("*"*45)
                     #interface to view passwords
                     elif get_input == "vp":
                         if user_existing(get_result.auth):
@@ -134,10 +134,10 @@ def main():
                                 print(f"{my_label+1}. {get_password.app_name} >>> {get_password.web_key}")
                                 my_label+=1
                             print("\nEnter a command to continue")
-                            print("-"*20)
+                            print("*"*20)
                         else:
                             print("\nYou have no saved passwords.\nType ap to generate some passwords")
-                            print("-"*20)
+                            print("*"*20)
 
                     elif get_input == "cp": #copy password interface
                         if user_existing(get_result.auth):
@@ -147,20 +147,20 @@ def main():
                                 print("\n")
                                 print(f"{get_index+1} is invalid. Enter the correct index of password to copy")
                                 print("Type vp to confirm the correct index of password to copy")
-                                print("-"*20)
+                                print("+"*20)
                             elif get_index < entries[get_result.auth]:
                                 copy_password(get_result.auth,get_index)
                                 print("\n")
                                 print(f"Password {get_index+1} on the list has been copied, and is ready for pasting")
-                                print("-"*30)
+                                print("+"*30)
                         else:
-                            print("\nYou have no saved passwords.\nType ad to add some passwords")
-                            print("-"*20)
+                            print("\nYou have no saved passwords.\nType ap to add some passwords")
+                            print("*"*20)
 
                     elif get_input == "lo":
                         print("\n")
                         print(f" {get_result.user_name} has been logged out")
-                        print("-"*30)
+                        print("*"*30)
                         break
                     
                     else:
@@ -170,12 +170,12 @@ def main():
         elif input_text == "ex":
             print("\n")
             print(f"You have exited Password Locker!")
-            print("-"*30)
+            print("+"*30)
             break
 
         else:
             print("Invalid entry. Enter command again")
-            print("\n"+"-"*40)
+            print("\n"+"*"*20)
 
 
 if __name__ == '__main__':
