@@ -102,18 +102,12 @@ def main():
                         my_app = input()
                         
                         #optional password generation
-                        print("do you want a new password generated for you? \n Type y for yes \n n to input your own..")
-                        password_input = input().lower
-                        if password_input == "y":
-                            print("please specify length of pasword you want to generate")
-                            password_length = int(input("Length of password: "))
-                            my_webkey = password_generator(password_length)
-                        if password_input == "n":
-                            print("Key in your Password to save it")
-                            my_webkey = input()
-                        else:
-                            print("password locker does not understand your input")
-                        
+                    print("do you want a new password generated for you? \n Type y for yes \n n to input your own..")
+                    password_input = input().lower
+                    if password_input == "y":
+                        print("please specify length of pasword you want to generate")
+                        password_length = int(input("Length of password: "))
+                        my_webkey = password_generator(password_length)
                         my_auth = get_result.auth
                         add_data(new_user(my_auth,entries[my_auth],my_app,my_webkey))
                         entries[my_auth]=entries[my_auth]+1
@@ -123,6 +117,14 @@ def main():
                         print(f"***Your password for {my_app} is {my_webkey}***")
                         print("-"*45)
                         print("-"*30)
+                        
+                    if password_input == "n":
+                        print("Key in your Password to save it")
+                        my_webkey = input()
+                    else:
+                        print("password locker does not understand your input")
+                        
+                        
                     #interface to view passwords
                     elif get_input == "vp":
                         if user_existing(get_result.auth):
