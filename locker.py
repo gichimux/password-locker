@@ -10,7 +10,7 @@ class User:
     def save_user(self):
         User.user_details.append(self)
 
-    def __init__(self first_name, last_name, login_name):
+    def __init__(self, first_name, last_name, login_name):
         self.first_name =first_name
         self.last_name = last_name
         self.login_name = login_name
@@ -20,12 +20,12 @@ class Credentials:
     class that creates instances of credentials
     '''
 
-    credentials_list = []
+    credentials_list = {}
 
     def save_credentials(self):
         Credentials.credentials_list.append(self)
 
-    def __init__(self app_name, user_name, password):
+    def __init__(self, app_name, user_name, password):
         self.app_name = app_name
         self.user_name = user_name
         self.password = password
@@ -34,6 +34,16 @@ class Credentials:
 
     def password_gen():
         return random.randint(11, 99) + str(random.randint(111, 499) + random.randint(33, 77) 
+    
+    @classmethod
+    def add_app(app_name):
+        
+   # @classmethod
+    #def password_verify(cls, password):
+    #    '''
+     #   password veification function 
+     #   '''
+      #  for char in password
 
    
 
